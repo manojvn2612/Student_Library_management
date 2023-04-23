@@ -54,7 +54,7 @@ public:
 			string tit, id, auth, s_id, name, DOI, DOR;
 			char c = ',';
 			cout << "Give Title,id,auth,name,s_id,Date to be Issued,Date to be returned";
-			cin >> tit >> c >> id >> c >> auth >> c >> name >> c >> s_id >> c >> DOI >> c >> DOR;
+			cin >> tit >> id >> auth >> name >> s_id >> DOI >> DOR;
 			//cout << "\n";
 			result = lib.issue_book(tit, id, auth, name, s_id, DOI, DOR);
 			if (result = true)
@@ -241,6 +241,28 @@ public:
 				return;
 			}
 			reg::Register_t(name, sid_t, password);
+			char x;
+			cout << "Do you want to add books\nif yes then press y if no press n to logout and go to main menu\ny or n:\t" << endl;
+			cin >> x;
+			if (x == 'y' || x == 'Y')
+			{
+				Library lib;
+				string tit, id, auth;
+				cout << "Give title name";
+				cin >> tit;
+				cout << "\nGive Book id";
+				cin >> id;
+				cout << "\nGive Author name";
+				cin >> auth;
+				Books b(tit, id, auth);
+				lib.add_books(b);
+				cout << "Added Book Successfully Loging you out to save the book to library" << endl;
+				L();
+			}
+			else if (x == 'n' || x == 'N')
+			{
+				selection();
+			}
 		}
 		else if (m == 2)
 		{
@@ -275,6 +297,18 @@ public:
 			}
 			reg::Register_s(name, sid_s, password);
 			cout << "Registered Successful" << endl;
+			char y;
+			cout << "Do you want to Issue or return any book" << endl;
+			cin >> y;
+			if (y == 'y' || y == 'Y')
+			{
+				cout << "Book Issue Menu" << endl;
+				B();
+			}
+			else if (y == 'n' || y == 'N')
+			{
+				L();
+			}
 		}
 		else if (m == 3)
 		{
