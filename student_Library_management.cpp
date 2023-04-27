@@ -68,6 +68,7 @@ public:
 		{
 			string tit;
 			cout << "GIve Title of Book";
+			cin >> tit;
 			lib.removeIssuedBook(tit);
 		}
 		else if (m == 3)

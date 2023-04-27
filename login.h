@@ -5,7 +5,7 @@ class reg
 	private:
 		string name;
 		string y;
-		int n;
+		//int n;
 	public:
 		void Register_t(string name, string id, string password)
 		{

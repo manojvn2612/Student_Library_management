@@ -101,14 +101,14 @@ class Library
 				if (t == title) {
 					// Skip this book
 					found = true;
-					for (int i = 0; i < issued_books.size(); i++) {
+					for (int i = 0; i < 6; i++) {
 						getline(infile, t);
 					}
 				}
 				else {
 					// Write this book to the temp file
 					outfile << t << endl;
-					for (int i = 0; i < issued_books.size(); i++) {
+					for (int i = 0; i < 6; i++) {
 						getline(infile, t);
 						outfile << t << endl;
 					}
@@ -133,7 +133,7 @@ class Library
 
 		void issue_book_to_file()
 		{
-			ofstream out("Issued_Books.txt",ios::out);
+			ofstream out("Issued_Books.txt",ios::app);
 			for (int i = 0; i < issued_books.size(); i++)
 			{
 				out << issued_books[i].title << endl;
