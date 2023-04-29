@@ -146,21 +146,7 @@ class Library
 			}
 			out.close();
 		}
-		int return_book_to_file()
-		{
-			string tittle, b_id;
-			ifstream in("Issued_Books.txt");
-			while (getline(in, tittle)&& getline(in,b_id))
-			{
-				for (int i = 0; i < issued_books.size(); i++)
-				{
-					if (issued_books[i].title == tittle)
-						return i;
-				}
-				return -1;
-			}
-			in.close();
-		}
+
 		int find_book(string title)
 		{
 			for (int i = 0; i < books.size(); i++)
